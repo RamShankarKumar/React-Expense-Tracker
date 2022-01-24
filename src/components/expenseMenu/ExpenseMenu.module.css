@@ -1,0 +1,68 @@
+.expenseMenu{
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-radius: 1rem;
+    position: sticky;
+    top: 0px;
+    display: flex;
+    align-items:center;
+    justify-content:flex-end;
+    z-index: 2;
+}
+
+.expenseMenu ul{
+    display: flex;
+    align-items: center;
+    justify-content:right;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+
+.expenseMenu li{
+    list-style: none;
+    color: #ffffff;
+    font-weight: 700;
+    margin: 0 1rem;
+}
+
+/* .expenseMenu_newExpense{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.expenseMenu_newExpense:hover{
+    background-color: #ee8c68;
+    background-image: linear-gradient(315deg, #ee8c68 0%, #eb6b9d 74%);
+}
+
+.expenseMenu_add{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.expenseMenu_add:hover{
+    background-color:#20bf55;
+    background-image:linear-gradient(315deg, #01baef 0%, #20bf55 74%);
+} */
+
+.expenseMenu_delete{
+    background-color: rgba(255, 255, 255, 1);
+    padding: 0.4rem 1.5rem 0.4rem 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    color: rgba(184, 15, 10, 1) !important;
+    transition: all 0.2s;
+}
+
+.expenseMenu_delete:hover{
+    background-color: rgba(184, 15, 10, 1);
+    color: #ffffff !important;
+}

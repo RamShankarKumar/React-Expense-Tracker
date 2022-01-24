@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import {CardContainer, TrackerContainer} from './components';
+import styles from './App.module.css';
+import ExpenseForm from './components/expenseForm/ExpenseForm'
+import BalanceForm from './components/balanceForm/BalanceForm'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.appContainer}>
+      <CardContainer />
+      <div className={styles.content}>
+        <div className={styles.formContainer}>
+          <ExpenseForm />
+          <BalanceForm />
+        </div>
+        <TrackerContainer />
+      </div>
     </div>
   );
 }

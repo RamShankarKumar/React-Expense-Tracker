@@ -1,0 +1,42 @@
+.form{
+    background-color:#20bf55;
+    background-image:linear-gradient(315deg, #01baef 0%, #20bf55 74%);
+    padding: 1rem 1rem 0.2rem 1rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+}
+
+.formItem{
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.formfields div>input{
+    outline: none;
+    box-shadow : none;
+    border: none;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ffffff;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 1)
+}
+
+.formfields div>label{
+    font-weight: 700;
+}
+
+.form button{
+    outline: none;
+    padding: 3px 20px;
+    border: none;
+    border-radius: 7px;
+    background-color: white;
+    color: #000000;
+    cursor: pointer;
+}

@@ -1,0 +1,60 @@
+.card{
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    /* padding: 0.5em 1em 1em 1em; */
+    /* padding: 0 1em 1em 1em; */
+    color: #ffffff;
+    flex-basis: 30%; /* give 30% of the parent container width to every card component */
+}
+
+.current{
+    background-color: #045de9;
+    background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+}
+
+.credited{
+    background-color:#20bf55;
+    background-image:linear-gradient(315deg, #01baef 0%, #20bf55 74%);
+
+}
+
+.debited{
+    background-color: #ee8c68;
+    background-image: linear-gradient(315deg, #ee8c68 0%, #eb6b9d 74%);
+}
+
+.cardData{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.cardHeader{
+    background-color: rgba(0, 0, 0, 0.3);
+    /* border-radius: 0.8em; */
+    border-radius: 1rem 1rem 0 0;
+    margin: 0 0 1rem 0;
+    color: #ffffff;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.cardHeader p{
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.cardAmount{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+@media (max-width: 665px) {
+    .card{
+        width:70%;
+        margin: 0.5rem;
+    }
+}

@@ -1,0 +1,35 @@
+.trackerContainer{
+    padding : 0rem 1rem 0rem 1rem;
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    /* border-radius: 0.5rem; */
+    /* max-height: 71vh; */
+    max-height: calc(100vh - 175px);
+    min-height: 40vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+    flex-basis: 75%;
+    margin-left: 2rem;
+    border-radius: 1rem;
+}
+
+/* Works on Chrome, Edge, and Safari */
+.trackerContainer::-webkit-scrollbar {
+    width: 12px;
+}
+
+.trackerContainer::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 1);
+}
+
+.trackerContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.expenseCardContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));;
+    grid-row-gap: 15px;
+}
