@@ -1,20 +1,44 @@
 import styles from './ExpenseForm.module.css';
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import { dbContext } from "../../contexts/dbContext";
 
 const ExpenseForm = () => {
     const formInitialValues = {"item":"", "price":""};
     const [formData, setFormData] = useState(formInitialValues);
 
-    console.log(formData);
+    // value that is coming from context provider
+    const [DBFlag, setDBFlag] = useContext(dbContext);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setFormData({...formData, [name]: value});
+        setFormData( oldFormData => ({...oldFormData, [name]: value}));
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault(); 
-        
+    const saveFormData = async () => {
+        console.log(JSON.stringify(formData));
+        const response = await fetch('http://localhost:5000/add_expense', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify(formData)
+        });
+        if(response.status === 201){
+            console.log('data inserted!')
+            alert("Data Inserted!");
+            setDBFlag(!DBFlag);
+        }
+        else if (response.status !== 201) {
+            throw new Error(`Request failed: ${response.status}`);
+        }
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault(); // Prevent default submission
+        try {
+            await saveFormData();
+            setFormData({"item":"", "price":""});
+        } catch (e) {
+            alert(`Registration failed! ${e.message}`);
+        }
     }
 
     return(
@@ -30,16 +54,18 @@ const ExpenseForm = () => {
                         placeholder='New Item' 
                         value={formData.item} 
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <div className={`${styles.field} ${styles.formItem}`}>
                     <label>Price</label>
                     <input 
-                        type='text' 
+                        type='number' 
                         name='price' 
                         placeholder='Price' 
                         value={formData.price} 
                         onChange={handleChange}
+                        required
                     />
                 </div>
                 <button className={`${styles.formButton} ${styles.formItem}`}>Add</button>

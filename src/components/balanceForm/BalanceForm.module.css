@@ -1,9 +1,10 @@
 .form{
-    background-color:#20bf55;
-    background-image:linear-gradient(315deg, #01baef 0%, #20bf55 74%);
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
     padding: 1rem 1rem 0.2rem 1rem;
     border-radius: 1rem;
     margin-top: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .formItem{
@@ -39,4 +40,9 @@
     background-color: white;
     color: #000000;
     cursor: pointer;
+}
+
+.form button:hover{
+    background-color:#20bf55;
+    background-image:linear-gradient(315deg, #01baef 0%, #20bf55 74%);
 }

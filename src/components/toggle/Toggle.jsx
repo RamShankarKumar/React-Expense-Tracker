@@ -1,5 +1,6 @@
 import styles from './Toggle.module.css';
-import React, {useState} from 'react';
+import {useState, useContext} from 'react';
+import { filterContext } from "../../contexts/filterContext";
 
 const Toggle = () => {
     const [filter, setFilter] = useState('');
@@ -7,6 +8,9 @@ const Toggle = () => {
     const [creditFilterClass, setCreditFilterClass] = useState('');
     const [debitChecked, setDebitChecked] = useState(false);
     const [creditChecked, setCreditChecked] = useState(false);
+
+    // value that is coming from context provider
+    const [filterType, setfilterType] = useContext(filterContext);
 
     const handleDebitFilter = () => {
         if(debitFilterClass === ''){
@@ -46,6 +50,24 @@ const Toggle = () => {
         }
     }
 
+    const debitChangeHandler = () => {
+        if(debitChecked){
+            setfilterType('Debit');
+        }
+        else{
+            setfilterType('');
+        }
+    }
+
+    const creditChangeHandler = () => {
+        if(creditChecked){
+            setfilterType('Credit');
+        }
+        else{
+            setfilterType('');
+        }
+    }
+
 
     return(
         <div className={styles.toggleContainer}>
@@ -56,6 +78,7 @@ const Toggle = () => {
                     id="debit-filter"
                     value="Debit"
                     checked={debitChecked}
+                    onChange={debitChangeHandler}
                     className={styles.filterDebitCredit}
                 />
                 <div className={`${styles.debitToggleButton} ${styles[debitFilterClass]}`} onClick={handleDebitFilter}>{filter === 'Debit' ? filter : ''}</div>
@@ -68,6 +91,7 @@ const Toggle = () => {
                     value="Credit"
                     id="credit-filter"
                     checked={creditChecked}
+                    onChange={creditChangeHandler}
                     className={styles.filterDebitCredit}
                 />
                 <div className={`${styles.creditToggleButton} ${styles[creditFilterClass]}`} onClick={handleCreditFilter}>{filter === 'Credit' ? filter : ''}</div>

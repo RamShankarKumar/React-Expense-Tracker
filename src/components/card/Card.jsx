@@ -1,5 +1,4 @@
 import styles from './Card.module.css';
-// import cx from 'classnames';
 import { FaRupeeSign } from "react-icons/fa";
 
 const Card = (props) => {

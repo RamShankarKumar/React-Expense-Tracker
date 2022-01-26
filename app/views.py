@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from . import db
-from .models import Expense, Credit, TotalAmounts
+from .models import Expense, TotalAmounts
 from datetime import date
 
 main = Blueprint('main', __name__)
@@ -8,6 +8,7 @@ main = Blueprint('main', __name__)
 @main.route('/add_expense', methods=['POST'])
 def add_expense():
     expense_data = request.get_json()
+    # print(expense_data, file=sys.stderr)
     serial_Number = len(Expense.query.all())+1
     new_expense = Expense(serialNumber=serial_Number, item=expense_data['item'], date=date.today(), price=expense_data['price'], type='Debit')
     db.session.add(new_expense)
@@ -30,3 +31,30 @@ def all_expenses():
     for expense in expense_list:
         expenses.append({'serialNumber':expense.serialNumber, 'item':expense.item, 'date': expense.date, 'price':expense.price, 'type': expense.type})
     return jsonify(({'expenses': expenses}))
+
+
+@main.route('/debit')
+def debit():
+    expense_list = Expense.query.filter_by(type='Debit')
+    expenses = []
+    for expense in expense_list:
+        expenses.append({'serialNumber':expense.serialNumber, 'item':expense.item, 'date': expense.date, 'price':expense.price, 'type': expense.type})
+    return jsonify(({'expenses': expenses}))
+
+
+@main.route('/credit')
+def credit():
+    expense_list = Expense.query.filter_by(type='Credit')
+    expenses = []
+    for expense in expense_list:
+        expenses.append({'serialNumber':expense.serialNumber, 'item':expense.item, 'date': expense.date, 'price':expense.price, 'type': expense.type})
+    return jsonify(({'expenses': expenses}))
+
+
+@main.route('/amounts')
+def get_amount():
+    amount_list = Expense.query.all()
+    amounts = []
+    for amount in amount_list:
+        amounts.append({'serialNumber':amount.serialNumber, 'total':amount.totalAmount, 'debit': amount.totalDebit, 'credit':amount.totalCredit})
+    return jsonify(({'amounts': amounts}))
