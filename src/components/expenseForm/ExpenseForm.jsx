@@ -23,7 +23,6 @@ const ExpenseForm = () => {
         });
         if(response.status === 201){
             console.log('data inserted!')
-            alert("Data Inserted!");
             setDBFlag(!DBFlag);
         }
         else if (response.status !== 201) {
@@ -36,6 +35,7 @@ const ExpenseForm = () => {
         try {
             await saveFormData();
             setFormData({"item":"", "price":""});
+            alert("Data Inserted!");
         } catch (e) {
             alert(`Registration failed! ${e.message}`);
         }
@@ -54,6 +54,7 @@ const ExpenseForm = () => {
                         placeholder='New Item' 
                         value={formData.item} 
                         onChange={handleChange}
+                        autocomplete="off"
                         required
                     />
                 </div>
@@ -65,6 +66,7 @@ const ExpenseForm = () => {
                         placeholder='Price' 
                         value={formData.price} 
                         onChange={handleChange}
+                        autocomplete="off"
                         required
                     />
                 </div>

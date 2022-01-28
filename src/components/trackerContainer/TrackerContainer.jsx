@@ -40,16 +40,14 @@ const TrackerContainer = () => {
         }
     }, [DBFlag, filterType]) // It will run at start of the application as well as whenever DBFlag and filterType variable changes.
 
-    const createExpenseCard = (count) => {
+    const createExpenseCard = () => {
         return expense.map((exp) => (
             exp.type === 'Debit' ?
             <ExpenseCard 
                 key={exp.serialNumber} 
-                count = {count} 
                 newExp={exp}/> :
             <ExpenseCard 
                 key={exp.serialNumber} 
-                count = {count} 
                 newExp={exp}/>
         ))
     }

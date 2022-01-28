@@ -11,18 +11,18 @@ function AppContainer() {
 
     return (
         <div className={styles.appContainer}>
-            <CardContainer />
-            <div className={styles.content}>
-                <dbContext.Provider value={[DBFlag, setDBFlag]}>
-                    <filterContext.Provider value={[filterType, setfilterType]}>
-                        <div className={styles.formContainer}>
-                            <ExpenseForm />
-                            <BalanceForm />
-                        </div>
-                        <TrackerContainer />
-                    </filterContext.Provider>
-                </dbContext.Provider>
-            </div>
+            <dbContext.Provider value={[DBFlag, setDBFlag]}>
+                <CardContainer />
+                <div className={styles.content}>
+                        <filterContext.Provider value={[filterType, setfilterType]}>
+                            <div className={styles.formContainer}>
+                                <ExpenseForm />
+                                <BalanceForm />
+                            </div>
+                            <TrackerContainer />
+                        </filterContext.Provider>
+                </div>
+            </dbContext.Provider>
         </div>
     );
 }

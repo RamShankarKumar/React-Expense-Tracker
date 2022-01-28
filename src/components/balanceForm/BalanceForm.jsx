@@ -23,7 +23,6 @@ const BalanceForm = () => {
         });
         if(response.status === 201){
             console.log('data inserted!')
-            alert("Data Inserted!");
             setDBFlag(!DBFlag);
         }
         else if (response.status !== 201) {
@@ -36,6 +35,7 @@ const BalanceForm = () => {
         try {
             await saveFormData();
             setFormData({"balance":""});
+            alert("Data Inserted!");
         } catch (e) {
             alert(`Registration failed! ${e.message}`);
         }
@@ -52,6 +52,7 @@ const BalanceForm = () => {
                         placeholder='Add balance' 
                         value={formData.balance}  
                         onChange={handleChange} 
+                        autocomplete="off"
                         required/>
                 </div>
                 <button className={`${styles.formButton} ${styles.formItem}`}>Add</button>
